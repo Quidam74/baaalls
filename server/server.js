@@ -16,11 +16,7 @@ io.on("connection", function(socket) {
 	socket.emit("giveRole", i)
 	i++
 	activeClients.push(i)
-	
-
-
-})
-setInterval(function(){
+	setInterval(function(){
 	currentScreen = activeClients[currentClient]
 	if(currentClient==0)
 		vasVersDroit = true
@@ -28,6 +24,10 @@ setInterval(function(){
 		vasVersDroit = false
 	socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 },2000)
+
+
+})
+
 
 
 server.listen(8083);
