@@ -1,0 +1,15 @@
+{
+  "name": "ddi",
+  "version": "1.0.0",
+  "description": "A few sockets to play with ddi students",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ld",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socketio": "^1.0.0"
+  }
+}
