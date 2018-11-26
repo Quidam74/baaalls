@@ -6,6 +6,7 @@ var app = express();
 var server = http.Server(app);
 var io = socketio(server);
 
+var pas = 1
 var activeClients = []
 var currentClient = 0
 var i = 0;
@@ -16,14 +17,22 @@ io.on("connection", function(socket) {
 	socket.emit("giveRole", i)
 	i++
 	activeClients.push(i)
+
 	setInterval(function(){
-	currentScreen = activeClients[currentClient]
-	if(currentClient==0)
-		vasVersDroit = true
-	if(currentClient == activeClients.length)
-		vasVersDroit = false
-	socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
-},2000)
+		currentScreen = activeClients[currentClient]
+		currentClient+=pas
+		if(currentClient==0)
+		{
+			vasVersDroit = true
+			pas =-pas
+		}
+		if(currentClient == activeClients.length)
+		{
+			vasVersDroit = false
+			pas =-pas
+		}
+		socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
+	},2000)
 
 
 })
