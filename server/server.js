@@ -40,7 +40,7 @@ setInterval(function(){
 		pas =-pas
 	}
 	console.log({"active" : currentScreen,"vasVersDroit" : vasVersDroit})
-	socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
+	currentScreen.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 },2000)
 
 
