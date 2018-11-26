@@ -15,8 +15,11 @@ var currentScreen = 0;
 io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
+	
+	if(i!=0)
+		activeClients.push(i)
+	
 	i++
-	activeClients.push(i)
 
 	setInterval(function(){
 		currentScreen = activeClients[currentClient]
@@ -31,6 +34,7 @@ io.on("connection", function(socket) {
 			vasVersDroit = false
 			pas =-pas
 		}
+		console.log({"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 		socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 	},2000)
 
