@@ -8,12 +8,14 @@ var io = socketio(server);
 
 
 var i = 0;
+var vasVersDroit = true;
+var currentScreen = 0;
 io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
-
 	i++
 
+	socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 
 	socket.on("boum", function(data) {
 		if (data.author != "")
