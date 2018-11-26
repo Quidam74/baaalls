@@ -9,7 +9,8 @@ var io = socketio(server);
 var activeClients =[]
 var currentIndex = 1
 var estOk = false
-currentScreen = 5
+var currentScreen = 5
+var vasVersDroit = true
 var pas = 1
 var i = 0
 io.on("connection", function(socket) {
@@ -17,7 +18,7 @@ io.on("connection", function(socket) {
 	socket.emit("giveRole", i)
 	
 	activeClients.push(socket)
-	
+
 	if(i == 1)
 		estOk = true
 
