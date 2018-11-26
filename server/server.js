@@ -23,7 +23,7 @@ io.on("connection", function(socket) {
 
 
 setInterval(function(){
-	if(activeClients != []){
+	if(activeClients[0] != undefined ){
 		console.log(activeClients)
 		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 	}
