@@ -14,8 +14,7 @@ io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
 	
-		activeClients.push(socket)
-
+	activeClients.push(socket)
 	i++
 
 
@@ -24,9 +23,11 @@ io.on("connection", function(socket) {
 
 
 setInterval(function(){
-	console.log(activeClients)
-	activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
-},2000)
+	if(activeClients != []){
+		console.log(activeClients)
+		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
+	}
+	},2000)
 
 
 server.listen(8083);
