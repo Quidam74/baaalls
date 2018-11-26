@@ -11,36 +11,37 @@ var activeClients = []
 var currentClient = 0
 var i = 0;
 var vasVersDroit = true;
-var currentScreen = 0;
+var currentScreen = 1;
 io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
 	
 	if(i!=0)
-		activeClients.push(i)
-	
+		activeClients.push(socket)
+
 	i++
 
-	setInterval(function(){
-		currentScreen = activeClients[currentClient]
-		currentClient+=pas
-		if(currentClient==0)
-		{
-			vasVersDroit = true
-			pas =-pas
-		}
-		if(currentClient == activeClients.length)
-		{
-			vasVersDroit = false
-			pas =-pas
-		}
-		console.log({"active" : currentScreen,"vasVersDroit" : vasVersDroit})
-		socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
-	},2000)
 
 
 })
 
+
+setInterval(function(){
+	currentScreen = activeClients[currentClient]
+	currentClient+=pas
+	if(currentClient==0)
+	{
+		vasVersDroit = true
+		pas =-pas
+	}
+	if(currentClient == activeClients.length)
+	{
+		vasVersDroit = false
+		pas =-pas
+	}
+	console.log({"active" : currentScreen,"vasVersDroit" : vasVersDroit})
+	socket.emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
+},2000)
 
 
 server.listen(8083);
