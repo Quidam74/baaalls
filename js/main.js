@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
-	let socket = io("10.130.1.200:8083")
+	let socket = io("10.103.1.200:8083")
     console.log(socket)
     var monRole;
     var baaalls = document.querySelector(".baaalls")
