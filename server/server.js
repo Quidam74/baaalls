@@ -10,6 +10,7 @@ var activeClients =[]
 var currentIndex = 1
 currentScreen = 5
 var pas = 1
+var i = 0
 io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
