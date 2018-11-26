@@ -8,6 +8,7 @@ var io = socketio(server);
 
 var activeClients =[]
 var currentIndex = 1
+var estOk = false
 currentScreen = 5
 var pas = 1
 var i = 0
@@ -16,15 +17,18 @@ io.on("connection", function(socket) {
 	socket.emit("giveRole", i)
 	
 	activeClients.push(socket)
-	i++
+	
+	if(i == 1)
+		estOk = true
 
+	i++
 
 
 })
 
 
 setInterval(function(){
-	if(activeClients[0] != undefined ){
+	if(estOk != false ){
 		console.log(activeClients)
 		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 	}
