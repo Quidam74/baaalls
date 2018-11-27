@@ -45,7 +45,7 @@ setInterval(function(){
 				vasVersDroit = true
 				pas = -pas
 			}
-			if(currentScreen == activeClients.length-1)
+			if(currentScreen == activeClients.length)
 			{
 				vasVersDroit = false
 				pas = -pas
