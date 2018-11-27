@@ -12,7 +12,7 @@ var estOk = false
 var currentScreen = 1
 var vasVersDroit = true
 var pas = 1
-var i = 0
+var i = 1
 io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
