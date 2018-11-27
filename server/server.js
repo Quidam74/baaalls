@@ -7,7 +7,7 @@ var server = http.Server(app);
 var io = socketio(server);
 
 var activeClients =[]
-var currentIndex = 1
+var currentIndex = 0
 var estOk = false
 var currentScreen = 1
 var vasVersDroit = true
@@ -19,7 +19,7 @@ io.on("connection", function(socket) {
 	
 	
 
-	if(i >= 2)
+	if(i >= 1)
 	{
 		activeClients.push(socket)
 		estOk = true
