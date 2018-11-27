@@ -19,7 +19,7 @@ io.on("connection", function(socket) {
 	
 	
 
-	if(i >= 1)
+	if(i >= 2)
 	{
 		activeClients.push(socket)
 		estOk = true
