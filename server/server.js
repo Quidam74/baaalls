@@ -19,11 +19,9 @@ io.on("connection", function(socket) {
 	
 	
 
-	if(i >= 1)
-	{
+
 		activeClients.push(socket)
 		estOk = true
-	}
 
 	i++
 
@@ -40,7 +38,7 @@ setInterval(function(){
 		if(activeClients.length >=2){
 			currentScreen += pas
 
-			if(currentScreen == 1)
+			if(currentScreen == 0)
 			{
 				vasVersDroit = true
 				pas = -pas
