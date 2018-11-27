@@ -17,13 +17,13 @@ main{
 }
 
 @keyframes toLeft{
-	from{transform: translate(calc(100vw - 50px),50vh);}
+	from{transform: translate(calc(100vw + 50px),50vh);}
 	to {transform: translate(calc(0vw - 50px),50vh);}
 }
 
 @keyframes toRight{
 	from{transform: translate(calc(0vw - 50px),50vh);}
-	to {transform: translate(calc(100vw - 50px),50vh);}
+	to {transform: translate(calc(100vw + 50px),50vh);}
 }
 
 .baaalls-left{
@@ -35,4 +35,8 @@ main{
 
 .hide{
 	display: none;
+}
+
+body{
+	overflow : hidden;
 }

@@ -24,10 +24,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     		baaalls.classList.remove("baaalls-right")
     		baaalls.classList.add("baaalls-left")
     	}
-
-    }else{
-    	baaalls.classList.add("hide");
+        setTimeout(function(){
+            baaalls.classList.add("hide");
+        },2000)
     }
+    	
+    
 })
 
 });
