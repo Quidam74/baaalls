@@ -37,8 +37,7 @@ setInterval(function(){
 		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 
 		if(activeClients.length >=2){
-			currentScreen += pas
-			currentIndex+= pas
+			
 
 			if(currentScreen == 0)
 			{
@@ -57,7 +56,8 @@ setInterval(function(){
 				else
 					pas = 0
 			}
-			
+			currentScreen += pas
+			currentIndex+= pas
 		}else{
 			if(vasVersDroit)
 				vasVersDroit=false
