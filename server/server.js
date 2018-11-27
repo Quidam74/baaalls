@@ -9,9 +9,9 @@ var io = socketio(server);
 var activeClients =[]
 var currentIndex = 1
 var estOk = false
-var currentScreen = 0
+var currentScreen = 1
 var vasVersDroit = true
-var pas = -1
+var pas = 1
 var i = 0
 io.on("connection", function(socket) {
 	console.log("Connect!");
@@ -36,18 +36,21 @@ setInterval(function(){
 		
 		//console.log(currentScreen)
 		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
+
 		if(activeClients.length >=2){
-			if(currentScreen == 0)
+			currentScreen += pas
+
+			if(currentScreen == 1)
 			{
 				vasVersDroit = true
 				pas = -pas
 			}
-			if(currentScreen == activeClients.length)
+			if(currentScreen == activeClients.length-1)
 			{
 				vasVersDroit = false
 				pas = -pas
 			}
-			currentScreen += pas
+			
 		}else{
 			if(vasVersDroit)
 				vasVersDroit=false
