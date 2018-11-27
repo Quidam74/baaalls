@@ -38,8 +38,7 @@ setInterval(function(){
 
 		if(activeClients.length >=2){
 			
-
-			if(currentScreen == 0)
+			if(currentScreen == 1)
 			{
 				vasVersDroit = true
 				if(pas == 0)
