@@ -12,6 +12,7 @@ var estOk = false
 var currentScreen = 1
 var vasVersDroit = true
 var pas = 1
+var step = 1
 var i = 1
 io.on("connection", function(socket) {
 	console.log("Connect!");
@@ -20,8 +21,8 @@ io.on("connection", function(socket) {
 	
 
 
-		activeClients.push(socket)
-		estOk = true
+	activeClients.push(socket)
+	estOk = true
 
 	i++
 
@@ -38,15 +39,23 @@ setInterval(function(){
 		if(activeClients.length >=2){
 			currentScreen += pas
 			currentIndex+= pas
+
 			if(currentScreen == 0)
 			{
 				vasVersDroit = true
-				pas = -pas
+				if(pas == 0)
+					pas = step
+				else
+					pas = 0
+
 			}
 			if(currentScreen == activeClients.length)
 			{
 				vasVersDroit = false
-				pas = -pas
+				if(pas == 0)
+					pas = -step
+				else
+					pas = 0
 			}
 			
 		}else{
