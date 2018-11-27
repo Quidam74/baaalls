@@ -33,8 +33,8 @@ io.on("connection", function(socket) {
 
 setInterval(function(){
 	if(estOk != false ){
+		console.log(activeClients.length)
 		
-		//console.log(currentScreen)
 		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 
 		if(activeClients.length >=2){
