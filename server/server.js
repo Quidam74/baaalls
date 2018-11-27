@@ -17,9 +17,9 @@ io.on("connection", function(socket) {
 	console.log("Connect!");
 	socket.emit("giveRole", i)
 	
-	activeClients.push(socket)
+	
 
-	if(i >= 2)
+	if(i >= 1)
 	{
 		activeClients.push(socket)
 		estOk = true
