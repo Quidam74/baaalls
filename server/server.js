@@ -9,7 +9,7 @@ var io = socketio(server);
 var activeClients =[]
 var currentIndex = 1
 var estOk = false
-var currentScreen = 5
+var currentScreen = 1
 var vasVersDroit = true
 var pas = 1
 var i = 0
@@ -30,7 +30,7 @@ io.on("connection", function(socket) {
 
 setInterval(function(){
 	if(estOk != false ){
-		console.log("aaa")
+		
 		//console.log(currentScreen)
 		activeClients[currentIndex].emit("ChangeScreen", {"active" : currentScreen,"vasVersDroit" : vasVersDroit})
 	}
